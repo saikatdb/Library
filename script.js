@@ -37,8 +37,21 @@ function displayBooks() {
     for (key in myLibrary[i]) {
       let cell = row.insertCell();
       let text = document.createTextNode(myLibrary[i][key]);
-      cell.appendChild(text);
+      cell.appendChild(text); 
     }
+    //add remove button
+    const btnId = 'btn' + i;
+    const removeBtn = document.createElement('button');
+    removeBtn.id = btnId;
+    removeBtn.textContent = 'REMOVE';
+    row.appendChild(removeBtn);
+    //add remove function
+    removeBtn.addEventListener('click', () => {
+      row.remove();
+      myLibrary.splice(i, 1);
+      displayBooks();
+      console.log(myLibrary)
+    })
   }
 };
 
@@ -144,7 +157,7 @@ btn.addEventListener('click', () => {
     form.remove();
     btn.disabled = false;
     e.preventDefault();
-    
+
   } else {
     console.log('empty')
     return;
@@ -159,6 +172,12 @@ btn.addEventListener('click', () => {
  })
 })
 
+// function removeBook() {
+//   for (i = 0; i < myLibrary.length; i++) {
+//     const btnId = 'btn' + i;
+//     const removeBtn = document.createElement('button');
+//     removeBtn.id = btnId;
+//   }
+// }
 
-
-console.log(myLibrary)
+// console.log(myLibrary)
