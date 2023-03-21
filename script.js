@@ -11,7 +11,7 @@ function createBook(title, author, pages, read) {
       this.read = 'not read yet'
     };
 }
-const theHobbit = new createBook('The Hobbit', 'J.R.R. Tolkien', '295', 'no')
+const theHobbit = new createBook('The Hobbit', 'J.R.R. Tolkien', '295', 'yes')
 const harryPotter = new createBook("Harry Potter and the Philosopher's Stone", "J. K. Rowling","325", "no")
 
 addBookToLibrary(theHobbit)
@@ -27,6 +27,7 @@ const body = document.querySelector('body');
 const table = document.querySelector('table');
 const tbody = document.querySelector('tbody');
 
+
 //function to display book properties
 function displayBooks() {
    // Clear any existing rows from the table
@@ -39,6 +40,11 @@ function displayBooks() {
       let text = document.createTextNode(myLibrary[i][key]);
       cell.appendChild(text); 
     }
+
+    //add change status button 
+    const btnStatus = document.createElement('button');
+    btnStatus.textContent = 'Change Status';
+    row.appendChild(btnStatus);
     //add remove button
     const btnId = 'btn' + i;
     const removeBtn = document.createElement('button');
@@ -50,7 +56,14 @@ function displayBooks() {
       row.remove();
       myLibrary.splice(i, 1);
       displayBooks();
-      console.log(myLibrary)
+    })
+    btnStatus.addEventListener('click', () => {
+      if (myLibrary[i].read === 'have read') {
+        myLibrary[i].read = 'not read yet';
+      } else if (myLibrary[i].read === 'not read yet') {
+        myLibrary[i].read = 'have read';
+      }
+      displayBooks();
     })
   }
 };
@@ -142,9 +155,7 @@ btn.addEventListener('click', () => {
       const bookName = titleName;
       obj[bookName] = new createBook (titleName, authorName, pageNumber, 'yes');
       const book = obj[bookName];
-      console.log(book)
       addBookToLibrary(book);
-      console.log(myLibrary)
     } else if (!status.checked) {
       const obj = {};
       const bookName = titleName;
@@ -159,7 +170,6 @@ btn.addEventListener('click', () => {
     e.preventDefault();
 
   } else {
-    console.log('empty')
     return;
   }
  })
@@ -172,12 +182,4 @@ btn.addEventListener('click', () => {
  })
 })
 
-// function removeBook() {
-//   for (i = 0; i < myLibrary.length; i++) {
-//     const btnId = 'btn' + i;
-//     const removeBtn = document.createElement('button');
-//     removeBtn.id = btnId;
-//   }
-// }
 
-// console.log(myLibrary)
