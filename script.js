@@ -6,9 +6,9 @@ function createBook(title, author, pages, read) {
     this.author = author
     this.pages = pages
     if(read == 'yes'){
-      this.read = 'have read'
+      this.read = 'READ'
     } else if(read == 'no') {
-      this.read = 'not read yet'
+      this.read = 'NOT READ'
     };
 }
 const theHobbit = new createBook('The Hobbit', 'J.R.R. Tolkien', '295', 'yes')
@@ -38,30 +38,33 @@ function displayBooks() {
     for (key in myLibrary[i]) {
       let cell = row.insertCell();
       let text = document.createTextNode(myLibrary[i][key]);
+      cell.setAttribute('class', `cell${i}`)
       cell.appendChild(text); 
     }
 
-    //add change status button 
+    //select book.read property
+    const status = document.querySelector(`.cell${i}:nth-of-type(4)`);
     const btnStatus = document.createElement('button');
-    btnStatus.textContent = 'Change Status';
-    row.appendChild(btnStatus);
+
     //add remove button
     const btnId = 'btn' + i;
     const removeBtn = document.createElement('button');
     removeBtn.id = btnId;
     removeBtn.textContent = 'REMOVE';
     row.appendChild(removeBtn);
+
     //add remove function
     removeBtn.addEventListener('click', () => {
       row.remove();
       myLibrary.splice(i, 1);
       displayBooks();
-    })
-    btnStatus.addEventListener('click', () => {
-      if (myLibrary[i].read === 'have read') {
-        myLibrary[i].read = 'not read yet';
-      } else if (myLibrary[i].read === 'not read yet') {
-        myLibrary[i].read = 'have read';
+    });
+
+    status.addEventListener('click', () => {
+      if (myLibrary[i].read === 'READ') {
+        myLibrary[i].read = 'NOT READ';
+      } else if (myLibrary[i].read === 'NOT READ') {
+        myLibrary[i].read = 'READ';
       }
       displayBooks();
     })
