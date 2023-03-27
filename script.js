@@ -109,6 +109,7 @@ btn.addEventListener('click', () => {
  //create an input element for pages
  const pages = document.createElement('input');
  pages.setAttribute('type', 'number');
+ pages.setAttribute('min', '1');
  pages.setAttribute('name', 'pages');
  pages.setAttribute('required', 'true');
  pages.setAttribute('placeholder', 'PAGES');
