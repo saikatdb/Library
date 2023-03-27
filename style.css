@@ -1,0 +1,174 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+    background-color: white;
+}
+
+body {
+    font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+.add,
+main {
+    margin: 20px;
+}
+
+table {
+    table-layout: fixed;
+    width: 100%;
+    border-collapse: collapse;
+    /* border: 3px solid purple; */
+}
+
+thead th:nth-child(1) {
+    width: 30%;
+}
+
+thead th:nth-child(2) {
+    width: 20%;
+}
+  
+thead th:nth-child(3) {
+    width: 15%;
+}
+  
+thead th:nth-child(4) {
+    width: 15%;
+}
+
+thead th:nth-child(4) {
+    width: 20%;
+}
+  
+th,
+td {
+    padding: 20px;
+}
+
+td {
+    text-align: center;
+}
+
+tbody tr {
+    border-width: 2px;
+    border-style: solid none solid none;
+}
+
+  tbody tr:nth-child(odd) {
+    background-color:azure;
+  }
+  
+  tbody tr:nth-child(even) {
+    background-color:aliceblue;
+  }
+  
+
+[id^='btn'] {
+    margin: 25px auto;
+    padding: 5px 15px;
+    background-color: rgb(252, 6, 19);
+    border: none;
+    border-radius: 4px;
+    color: aliceblue;
+}
+
+[id^='btn']:hover {
+    background-color: rgb(163, 7, 14);
+    cursor: pointer;
+}
+
+tr td:nth-of-type(4) {
+    width: 30%;
+    color: rgb(73, 72, 72);
+}
+
+tr td:nth-of-type(4):hover {
+    text-decoration: underline;
+    cursor: pointer;
+    color: black
+}
+
+.add {
+    display: block;
+    padding: 10px 30px;
+    margin: auto;
+    border: none;
+    border-radius: 4px;
+    background-color: rgb(216, 211, 211);
+}
+
+.add:hover {
+    background-color: rgb(201, 195, 195);
+    cursor: pointer;
+}
+
+.add:disabled {
+    cursor: alias;
+    background-color: rgb(216, 211, 211);
+}
+
+header {
+    background-color: rgb(216, 211, 211);
+    margin: 0 0 20px;
+    padding: 20px 20px;
+}
+
+form {
+    /* position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0); */
+    background-color: rgb(184, 224, 180);
+    border: 2px solid black;
+    border-radius: 6px;
+    padding: 5px;
+    margin: 20px auto;
+    width: 250px;
+}
+
+input {
+    background-color: aliceblue;
+    border-radius: 4px;
+    height: 2rem;
+    border: none;
+}
+
+input:focus {
+    background-color: rgb(229, 242, 253);
+    border: none;
+}
+
+input[type="checkbox"] {
+    position: relative;
+    width: 1em;
+    height: 1em;
+    border: 1px solid gray;
+    /* Adjusts the position of the checkboxes on the text baseline */
+    vertical-align: -2px;
+    /* Set here so that Windows' High-Contrast Mode can override */
+    /* color: green; */
+    left: 10px;
+}
+
+#p5 {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#cancel,
+#submit {
+    height: 30px;
+    border-radius: 6px;
+    background-color: rgb(74, 71, 236);
+    border: none;
+}
+
+#cancel:hover,
+#submit:hover {
+    background-color: rgb(59, 56, 219);
+    cursor: pointer;
+}

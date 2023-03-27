@@ -2,26 +2,32 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="normalize.css" />
+    <link href="style.css" rel="stylesheet"/>
     <script src="script.js" defer></script>
     <title>Document</title>
 </head>
 <body>
-    <h1>Library</h1>
+    <header class="header">
+        <h1>Library</h1>
+    </header>
     <button class="add" type="button">+ADD BOOK</button>
+    
+    <main class="main">
+        <table>
+            <tHead>
+                <tr>
+                    <th scope="col">TITLE</th>
+                    <th scope="col">AUTHOR</th>
+                    <th scope="col">PAGES</th>
+                    <th scope="col">STATUS</th>
+                    <th>&nbsp;</th>
+                </tr>
+            </tHead>
+            <tbody>
 
-    <table>
-        <tHead>
-            <tr>
-                <th>TITLE</th>
-                <th>AUTHOR</th>
-                <th>PAGES</th>
-                <th>STATUS</th>
-                <th>&nbsp;</th>
-            </tr>
-        </tHead>
-        <tbody>
-
-        </tbody>
-    </table>
+            </tbody>
+        </table>
+    </main>
 </body>
 </html>
